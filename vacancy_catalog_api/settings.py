@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-q4^i!$$00i_-!wto+%l18f6=q=kj+^ijq&@upsboc+uxmw*_vi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 USE_X_FORWARDED_HOST=True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -67,17 +67,20 @@ TEMPLATES = [
     },
 ]
 
+WSGI_APPLICATION = 'vacancy_catalog_api.wsgi.application'
+
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'vacancy_api',
-        'USER': 'postgres',
-        'PASSWORD': '12',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': os.environ.get('PG_ENGINE', 'django.db.backends.postgresql_psycopg2'),
+        'NAME': os.environ.get('PG_DATABASE', 'vacancy_api'),
+        'USER': os.environ.get('PG_USER', 'postgres'),
+        'PASSWORD': os.environ.get('PG_PASSWORD', '12'),
+        'HOST': os.environ.get('PG_HOST', 'localhost'),
+        'PORT': os.environ.get('PG_PORT', '5432'),
     }
 }
 
