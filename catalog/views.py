@@ -32,7 +32,7 @@ class VacanciesAPIView(viewsets.ModelViewSet):
 class ApplicationsAPIView(viewsets.ModelViewSet):
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.AllowAny,)
     filterset_fields = ('applicant', 'job')
 
 
