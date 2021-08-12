@@ -110,3 +110,16 @@ Total                                          |         504 |    27 |   95% |
 # Документация
 
 Документация в формате Swagger находится по адресу: http://127.0.0.1:8000/api/
+
+## Use-case диаграмма системы
+
+![Usecase](https://github.com/oljakon/vacancy_catalog_api/blob/master/docs/usecase.png)
+
+
+## ER-диаграмма сущностей системы
+
+![ER](https://github.com/oljakon/vacancy_catalog_api/blob/master/docs/er.png)
+
+## Диаграмма базы данных
+
+![DB](https://github.com/oljakon/vacancy_catalog_api/blob/master/docs/database.png)
